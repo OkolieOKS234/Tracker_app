@@ -1,5 +1,23 @@
+/* root */
 html {
-  font-family: "helvetica neue";
+  width: auto;
+}
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background-color: #2222;
+  box-shadow: inset 0px 2px grey;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #262626;
+  border-radius: 20px;
+  height: 2%;
 }
 
 * {
@@ -57,6 +75,30 @@ input[type="checkbox"] {
   font-size: 24px;
   user-select: none;
 }
+/* form */
+.form_details {
+  display: flex;
+  flex-direction: column;
+}
+input[type="text"],
+input[type="number"] {
+  border: none;
+  background: transparent;
+  color: #fff;
+  border-bottom-color: red;
+  border-bottom: 1px solid #f1f1f1;
+}
+/* select option */
+select {
+  background-color: rgba(0, 0, 0, 0.76);
+  color: #ddd;
+}
+select > option {
+  background-color: rgba(0, 0, 0, 0.76);
+}
+select > option:focus {
+  background-color: #ff0000;
+}
 
 /* tracker add */
 .tracker {
@@ -68,6 +110,11 @@ input[type="checkbox"] {
   left: 20%;
   text-align: center;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
 }
 .submit_btn {
   padding: 10px;
@@ -76,8 +123,35 @@ input[type="checkbox"] {
   align-items: center;
   background: #ff0000;
   width: 50px;
+  position: relative;
+  left: 40%;
+  margin: 20px 0px;
+  font-size: 20px;
 }
 /* selection area */
+select {
+  width: 100%;
+  text-align: center;
+}
+/* earnings table */
+.earning_show {
+  height: 100vh;
+  position: absolute;
+  left: 25%;
+  margin-top: 10%;
+  max-width: 100%;
+}
+h4 {
+  text-align: center;
+}
+#sites td,
+#sites th {
+  border: 1px solid #ddd;
+  padding: 50px;
+}
+#sites th {
+  background-color: red;
+}
 
 /* Lets go responsive bro*/
 @media (max-width: 768px) {
@@ -85,16 +159,18 @@ input[type="checkbox"] {
   .menu {
     display: none;
     position: absolute;
-    background-color: black;
+    background-color: #3d3d3d;
+    z-index: 1;
     right: 0;
     left: 0;
-    height: 100%;
     text-align: center;
-    padding: 16px 0;
+    padding: 50px 0;
+    font-size: x-large;
+    min-height: 300px;
   }
   .menu li:hover {
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: bisque; */
   }
   .menu li + li {
     /* margin-top: 12px; */
@@ -113,5 +189,15 @@ input[type="checkbox"] {
 
   .tracker {
     width: 80%;
+    position: relative;
+    left: 20px;
+  }
+  .earning_show {
+    left: 10%;
+  }
+  #sites td,
+  #sites th {
+    border: 1px solid #ddd;
+    padding: 20px;
   }
 }

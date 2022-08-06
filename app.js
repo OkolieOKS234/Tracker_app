@@ -23,7 +23,7 @@ app.post("/", function (req, res) {
   console.log(req.body);
 });
 
-let PORT = 3000;
+let PORT = 8000;
 app.listen(PORT, function () {
   console.log("Server started on port 3000");
 });
